@@ -1,0 +1,53 @@
+.beer-section {
+  grid-area: main;
+  & > div {
+    margin: 20px 0;
+    @include desktop {
+      margin: 0;
+    }
+  }
+  @include desktop {
+    margin: 20px 0 20px;
+    display: grid;
+    grid-gap: 20px;
+  }
+
+  .likeButton {
+    font-size: 6rem;
+    padding-right: 10px;
+  }
+
+  .loading {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+.card-content {
+  .fas .fa-arrow-circle-right {
+    padding-top: 10px;
+    font-size: 2rem;
+    text-decoration: none;
+    color:black; 
+  }
+
+  .rating-container {
+    i {
+      position: relative;
+      top: 5px;
+    }
+  }
+  .icon {
+    a:link, a:hover, a:visited, a:active {
+      color: black;
+    }
+  }
+  
+  .imgBeer {
+    width: 50px;
+  }
+}
+
+
+}
