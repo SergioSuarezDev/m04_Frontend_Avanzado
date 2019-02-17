@@ -20,7 +20,9 @@ const detailTemplate = ({ beerId, name, description, image, ingredients, likes, 
     ${description}
   <br/><br/><p>Ingredients: </p>
     ${renderIngredientsInfo(ingredients)}
-  <br/><p><span class="like">Likes: ${likes}</span><i class="far fa-2x fa-thumbs-up"></i></p>
+  <br/><p>
+
+  </p>
   <br/><p>Comments: </p>
     <span id="comments">${renderComments(comments)} </span>
   <br/>
@@ -38,6 +40,7 @@ const renderIngredients = (type) => {
       else if (!Array.isArray(type)) {ingredients = `<li>${type}</li>`}
   return ingredients;
 }
+
 const renderDetail = async () => {
   try {
     const [, id] = window.location.search ? window.location.search.split('=') : [];

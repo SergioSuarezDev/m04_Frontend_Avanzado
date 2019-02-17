@@ -67,6 +67,21 @@ return {
         throw e;
       }
     },
+    addLike: async(id) => {
+      try {
+        const response = await fetch(`${BEERS_URL}/${id}/like`, {
+          method: 'POST',        
+          headers: {
+            'Content-type': 'application/json',
+            'X-API-KEY': API_KEY,
+          },
+        });
+        const beer = await response.json();
+        return beer;
+      } catch(e) {
+        console.error(e);
+      }
+    },
 
   };
 };
