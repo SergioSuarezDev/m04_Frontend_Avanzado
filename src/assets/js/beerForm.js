@@ -3,6 +3,7 @@ import api from './api';
 const beerForm = document.getElementById('beer-form');
 const beerInput = document.getElementById('beer');
 const likeForm = document.getElementById('likeForm');
+const cms = document.getElementById('commentsList');
 
 const { createComment } = api();
 const { addLike } = api();
@@ -16,13 +17,7 @@ beerForm.addEventListener('submit', async (evt) => {
   try {
     const [, id] = window.location.search ? window.location.search.split('=') : [];
     const comments = await createComment(id, beerInput.value);
-    let cm;
-          if (Array.isArray(comments) && comments.length !== 0) {
-            cm = comments.map(() => (`<li>${ing.name}</li>`)).join('');
-          }
-          else { cm = "No comments"}
-
-    document.getElementById('comments').innerHTML =  cm;
+   cms.innerHTML =  cms.innerText + ", " + beerInput.value;
   } catch (e) {
     console.error(e);
   }

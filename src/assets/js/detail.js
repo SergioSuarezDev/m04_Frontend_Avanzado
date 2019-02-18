@@ -1,12 +1,11 @@
 import '../styles/detail.scss';
-import '../styles/detail.scss';
 import api from './api';
 import './beerForm';
 import defaultImage from '../images/default-beer.png';
 
 const { getBeerDetail } = api();
 
-const detailTemplate = ({ beerId, name, description, image, ingredients, likes, comments }) => `
+const detailTemplate = ({ beerId, name, description, image, ingredients, likes, comment }) => `
 <header id="${beerId}">
     <div class="title-section">
       <h1>${name}</h1>
@@ -16,16 +15,14 @@ const detailTemplate = ({ beerId, name, description, image, ingredients, likes, 
     </div>
   </header>
   <div class="content">
-  <p>Description: </p>
+  <p><h4>Description:</h4> </p>
     ${description}
-  <br/><br/><p>Ingredients: </p>
+  <br/><br/><p><h4>Ingredients:</h4> </p>
     ${renderIngredientsInfo(ingredients)}
   <br/><p>
 
   </p>
-  <br/><p>Comments: </p>
-    <span id="comments">${renderComments(comments)} </span>
-  <br/>
+
   </div>
 `;
 
@@ -47,15 +44,18 @@ const renderDetail = async () => {
     const Beer = await getBeerDetail(id);
     const BeerHTML = detailTemplate(Beer.beer);
     document.getElementById('detail').innerHTML = BeerHTML;
+    document.getElementById('likesCount').innerHTML = Beer.beer.likes;
+    document.getElementById('commentsList').innerHTML = renderComments(Beer.beer.comment);
+
   } catch (e) {
     console.error(e);
   }
 };
 
-const renderComments = (comments) => {
+const renderComments = (comment) => {
   let cms;
-  if(comments && comments.length !==0){
-    cms = comments.map(comment => (`<p>${comment.comment}</p>`)).join('');
+  if(comment && comment.length !==0){
+    cms = comment.map(comment => (`${comment.comment}`)).join(', ');
   } else {cms = 'Not comments'}
   return cms;
 }
