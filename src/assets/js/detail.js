@@ -7,8 +7,9 @@ const { getBeerDetail } = api();
 
 const detailTemplate = ({ beerId, name, description, image, ingredients, likes, comment }) => `
 <header id="${beerId}">
-    <div class="title-section">
-      <h1>${name}</h1>
+    <div class="title-section"> 
+    <a href="index.html"><h4 class="back">Go Back</h4> </a>
+      <h1>${name}</h1> 
     </div>
     <div class="image-container">
       <img src="${image ? image : defaultImage}" />
@@ -20,9 +21,7 @@ const detailTemplate = ({ beerId, name, description, image, ingredients, likes, 
   <br/><br/><p><h4>Ingredients:</h4> </p>
     ${renderIngredientsInfo(ingredients)}
   <br/><p>
-
   </p>
-
   </div>
 `;
 

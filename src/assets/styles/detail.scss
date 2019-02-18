@@ -95,19 +95,30 @@ main {
 
   h4 {
     font-size: 1.5rem;
-
   }
+
+  .back {
+    font-size: 1rem;
+    padding-bottom:10px;
+    padding-right:50%;
+  }
+
+  .title {
+    font-size: 2rem;
+    padding-top:50px;
+  }
+
   .content,
   .beer-form,
   #likeForm, 
   #commentsBox {
     width: 80%;
-    margin: 20px auto;
+    margin: 10px auto;
     .quote-input {
       margin: 20px 0;
     }
     @include desktop {
-      margin: 50px auto;
+      margin: 20px auto;
       width: 70%;
     }
     p {
