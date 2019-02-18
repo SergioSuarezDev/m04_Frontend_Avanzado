@@ -9,6 +9,7 @@ searchForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (searchInput.value !== '') {
     renderDOMBeers(searchInput.value);
+    searchInput.value = "";
   }
 });
 
@@ -16,6 +17,7 @@ yearButton.addEventListener('click', (evt) => {
   evt.preventDefault();
   if (yearInput.value !== '') {
     renderDOMBeers(yearInput.value, 'year');
+    yearInput.value = "";
   }
 });
 

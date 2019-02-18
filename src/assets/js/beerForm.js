@@ -20,6 +20,7 @@ commentButton.addEventListener('click', async (evt) => {
     const [, id] = window.location.search ? window.location.search.split('=') : [];
     const comments = await createComment(id, beerInput.value);
    cms.innerHTML =  cms.innerText + ", " + beerInput.value;
+   beerInput.value = "";
   } catch (e) {
     console.error(e);
   }
