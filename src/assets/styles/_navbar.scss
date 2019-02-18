@@ -28,10 +28,11 @@
   .filter-container {
     width: 85%;
     @include tablet {
-      width: 40%;
+      width: 70%;
     }
   }
-  .filter-input {
+  .filter-input,
+  .filter-year {
     display: flex;
   }
   &.no-search {
@@ -66,6 +67,13 @@
 
 .logo {
   width: 50px;
+}
+
+#search-year {
+  width: 400px;
+}
+#beer-form {
+  width: 400px;
 }
 
 }

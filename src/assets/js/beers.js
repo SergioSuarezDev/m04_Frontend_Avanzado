@@ -3,8 +3,8 @@ import striptags from 'striptags';
 import { openHeader } from './ui';
 import api from './api';
 import defaultImg from '../images/default-beer.png';
-
 const { getBeers } = api();
+const { getBeersYear } = api();
 
 const templateBeer = ({ beerId, name, image, description, ingredients }) => `
   <div id="${beerId}" class="card principal">
@@ -36,15 +36,23 @@ const renderBeers = (element, Beers) => {
   element.innerHTML = htmlBeers;
 };
 
-export const renderDOMBeers = async (query) => {
+export const renderDOMBeers = async (query, year) => {
   try {
-    const fetchBeers = await getBeers(query);
+    let fetchBeers;
+    if(year) {
+      fetchBeers = await getBeersYear(query);
+    } else {
+      fetchBeers = await getBeers(query);
+    }
+
     const beerSection = document.getElementById('beer-section');
     renderBeers(beerSection, fetchBeers);
   } catch (e) {
     console.error(e);
   }
 };
+
+
 
 renderDOMBeers();
 
