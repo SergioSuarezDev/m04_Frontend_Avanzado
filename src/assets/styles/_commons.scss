@@ -74,7 +74,7 @@
   background: $primary-color-text;
   padding: 0;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
   i, button {
     cursor: pointer;
@@ -82,8 +82,9 @@
   .card-header {
     padding: 1em;
     h2 {
-      font-size: $header-h2;
+      font-size: 1.6rem;
       color: $primary-text-color;
+      font-weight: bold;
     }
   }
   .card-content,
@@ -113,7 +114,7 @@
         padding: 0 1em 1em 1em;
         font-size: $primary-font-size;
         line-height: 1.3;
-        max-height: 125px;
+        max-height: 135px;
         overflow-y: auto;
         margin-bottom: 10px;
         @include desktop {
