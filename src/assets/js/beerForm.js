@@ -28,7 +28,9 @@ likeForm.addEventListener('click', async (evt) => {
   try {
     const [, id] = window.location.search ? window.location.search.split('=') : [];
     const like = await addLike(id);
-    document.getElementById('likesCount').innerHTML =  like.beer.likes;
+    let lk =  document.getElementById('likesCount');
+    let lkplus = parseInt(lk.innerText) + 1;
+    lk.innerHTML =  lkplus;
   } catch (e) {
     console.error(e);
   }
