@@ -12,19 +12,11 @@ a {
   text-decoration: none;
 }
 
-navbar #search-form {
-  display:none;
-}
 main {
   display: block;
   margin: 80px 0;
 }
 
-.app-navbar {
-  .filter-container {
-    display: none;
-  }
-}
 
 .error {
   height: 50vw;
@@ -134,5 +126,11 @@ main {
     }
 
    
+  }
+}
+
+.app-navbar {
+  .filter-container, .navbar-icon {
+    display: none !important;
   }
 }
