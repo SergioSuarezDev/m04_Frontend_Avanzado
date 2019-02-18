@@ -39,21 +39,18 @@ return {
           },
         });
         const datos = await response.json();
-        var selectedBeers = [];
+        var beersFiltered = [];
 
         if (datos.beers.length > 0) {
           datos.beers.map(function (beer) {
-            let yearFirstBrewed = beer.firstBrewed.split('/')[1];
-            console.log(yearFirstBrewed, query)
-            if (yearFirstBrewed === query) {
-              selectedBeers.push(beer);
+            let yFb = beer.firstBrewed.split('/')[1];
+            if (yFb === query) {
+              beersFiltered.push(beer);
             }
           });
         }
 
-        console.log(selectedBeers);
-
-        return selectedBeers;
+        return beersFiltered;
 
       } catch (e) {
         console.error(e);
